@@ -25,8 +25,8 @@ Before running the project, ensure you have:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/document-management-api.git
-cd document-management-api
+git clone (https://github.com/Khushi220703/TextEditor_hrgenie)
+cd TextEditor_hrgenie
 ```
 
 2. **Install dependencies**
