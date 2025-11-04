@@ -13,7 +13,6 @@ connectDB();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'http://localhost:3000',
   'https://text-editor-hrgenie-ui.vercel.app',  // Replace with your actual frontend URL
   'https://text-editor-hrgenie-ui-git-main-khushbus-projects-81dc1e97.vercel.app'  // Add more if needed
 ];
