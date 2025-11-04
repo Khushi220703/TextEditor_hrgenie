@@ -1,22 +1,29 @@
 {
   "name": "texteditor_api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Document Management API with AI integration",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm install",
+    "dev": "nodemon server.js"
   },
   "author": "Khushbu Jha",
   "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
-    "dotnet": "^1.1.4",
+    "dotenv": "^16.0.3",
     "express": "^5.1.0",
     "express-rate-limit": "^8.2.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.19.2",
+    "mongoose": "^8.19.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   }
 }
