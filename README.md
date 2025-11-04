@@ -1,61 +1,105 @@
-Document Management API
-This is the backend API for the Document Management application. It provides secure CRUD operations and AI integration.
+📄 Document Management API
 
-Features
-User authentication (JWT)
+This is the backend API for the Document Management Application, providing secure CRUD operations, AI integration, and role-based access control.
 
-Document CRUD with access control & permissions
+🚀 Features
 
-AI integration for writing assistance (Google Gemini API)
+🔒 User Authentication using JWT
 
-Rate limiting to prevent abuse
+📂 Document CRUD Operations with access control & permissions
 
-Input sanitization to prevent XSS
+🤖 AI Integration for writing assistance (via Google Gemini API)
 
-Secure environment variable management with dotenv
+⚙️ Rate Limiting to prevent abuse
 
-Error handling and validation
+🧼 Input Sanitization to prevent XSS attacks
 
-Getting Started
+🔐 Environment Variable Management using dotenv
+
+🧩 Comprehensive Error Handling and validation
+
+🛠️ Getting Started
 Prerequisites
-Node.js >= 16
 
-MongoDB instance (local or cloud)
+Before running the project, ensure you have:
 
+Node.js ≥ 16
 
+MongoDB (local or cloud instance)
 
 Installation
-Clone repo
 
-Run npm install
+Clone the repository
 
-Create .env file:
+git clone https://github.com/your-username/document-management-api.git
+cd document-management-api
 
-text
+
+Install dependencies
+
+npm install
+
+
+Create a .env file in the project root:
+
 PORT=5000
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
 APP_BASE_URL=http://localhost:5173
-Start server: npm start
 
-API Endpoints
-POST /api/auth/login - Authenticate user
 
-GET /api/documents - List user's documents
+Start the server
 
-POST /api/documents - Create a document (owner/editor)
+npm start
 
-PUT /api/documents/:id - Update a document (owner/editor)
+📡 API Endpoints
+Method	Endpoint	Description	Access
+POST	/api/auth/login	Authenticate user and get token	Public
+GET	/api/documents	List user’s documents	Authenticated
+POST	/api/documents	Create a document	Owner / Editor
+PUT	/api/documents/:id	Update a document	Owner / Editor
+DELETE	/api/documents/:id	Delete a document	Owner only
+POST	/api/documents/:id/share	Generate a shareable link	Owner only
+GET	/api/shared/:token	Access shared document via token	Public
+🧰 Security
 
-DELETE /api/documents/:id - Delete a document (owner only)
+Implements rate limiting using express-rate-limit
 
-POST /api/documents/:id/share - Create a shareable link (owner only)
+Uses JWT authentication for all protected routes
 
-GET /api/shared/:token - Access shared document via token
+All environment variables managed via .env and loaded with dotenv
 
-Security
-Uses express-rate-limit for rate limiting
+Includes input sanitization and role-based access control
 
-JWT used for authentication and access control
+🧪 Example Usage
 
-Environment variables managed via .env and dotenv
+Login Request
+
+POST /api/auth/login
+Content-Type: application/json
+{
+  "email": "user@example.com",
+  "password": "yourpassword"
+}
+
+
+Response
+
+{
+  "token": "your_jwt_token",
+  "user": {
+    "id": "64e1b2a9f29...",
+    "email": "user@example.com",
+    "role": "owner"
+  }
+}
+
+📁 Project Structure
+📦 document-management-api
+├── 📁 config/           # Configuration files (DB, rate limiting, etc.)
+├── 📁 controllers/      # Route controller logic
+├── 📁 middleware/       # Auth, error handling, and validation
+├── 📁 models/           # Mongoose models
+├── 📁 routes/           # API route definitions
+├── server.js            # Entry point
+└── .env.example         # Example environment variables
